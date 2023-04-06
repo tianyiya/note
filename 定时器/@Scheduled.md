@@ -3,7 +3,7 @@
 ```text
 @EnableScheduling -> SchedulingConfiguration -> ScheduledAnnotationBeanPostProcessor -> processScheduled -> scheduledTasks
 -> ContextRefreshedEvent -> finishRegistration -> ScheduledTaskRegistrar.afterPropertiesSet -> scheduleTasks -> addScheduledTask
--> ThreadPoolTaskScheduler.schedule
+-> ThreadPoolTaskScheduler.schedule ->  ScheduledThreadPoolExecutor (ScheduledExecutorService)
 ```
 
 ![流程](./img/EnableScheduling.png)
