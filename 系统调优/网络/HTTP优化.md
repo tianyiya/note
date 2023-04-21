@@ -58,6 +58,17 @@ Frame受限`http2_chunk_size`，默认8K
 
 故一个Frame可由多个TCP报文组成（MSS=MTU-IP首部-TCP首部=1460 ）
 
+Stream作为短连接时，请求响应后就关闭
 
+Stream作为长连接时，多个请求之间串行传输
 
+HTTPS实现100个并发连接时，仅是一次握手，一次慢启动，一次TLS握手
+
+可以为每个Stream设置权重，权重高的分配更多资源
+
+支持服务端推送，使用Stream双号，先推送PUSH_PROMISE帧，通过Promised Stream Id告诉客户端接下来在哪个双号Stream推送包体
+
+### 对头阻塞问题
+
+后面的字符必须等前面的字符处理完毕才能处理，不能处理失序报文
 
